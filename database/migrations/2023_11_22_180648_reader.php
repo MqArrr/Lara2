@@ -11,7 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('readers', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+
+            $table->string('name');
+            $table->date('birth_date');
+        });
     }
 
     /**
@@ -19,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('readers');
     }
 };
